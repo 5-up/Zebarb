@@ -1,0 +1,318 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Barbearia Zébarb</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: coluna única de celular (máx. 460px). Capa em sangria total, logo + tesoura sobrepondo a capa,
+   pilha de botões, chips de serviço, book em mosaico, rodapé com crédito. Visual único: couro escuro + latão. */
+:root{
+  --couro:#17110d;      /* fundo: couro/espresso escuro */
+  --couro-2:#221913;    /* superfícies */
+  --linha:#3a2c22;      /* contornos */
+  --marfim:#f4ecde;     /* texto principal (mesma cor do logo) */
+  --pó:#b9a891;         /* texto secundário */
+  --latão:#d4a24c;      /* dourado */
+  --latão-claro:#f3d38a;
+  --latão-esc:#8a6424;
+  --zap:#2fbf6b;
+  --f-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --f-corpo:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--couro);color:var(--marfim);font-family:var(--f-corpo);font-size:15px;line-height:1.5;
+  background-image:radial-gradient(120% 60% at 50% 0%,#2a1d14 0%,var(--couro) 60%)}
+a{color:inherit}
+.pagina{max-width:460px;margin:0 auto;padding-inline:16px;padding-block:0 28px}
+
+/* CAPA */
+.capa{position:relative;margin-inline:-16px;height:clamp(190px,52vw,250px);overflow:hidden}
+.capa img{width:100%;height:100%;object-fit:cover;object-position:center 35%;display:block;filter:saturate(.9) contrast(1.05)}
+.capa::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,17,13,.15) 0%,rgba(23,17,13,.35) 55%,var(--couro) 100%)}
+.capa .selo{position:absolute;top:14px;left:16px;z-index:1;font:600 11px/1 var(--f-corpo);letter-spacing:.16em;text-transform:uppercase;
+  padding:7px 10px;border:1px solid rgba(243,211,138,.5);border-radius:99px;color:var(--latão-claro);background:rgba(23,17,13,.55);backdrop-filter:blur(4px)}
+
+/* IDENTIDADE */
+.identidade{position:relative;margin-top:-92px;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center}
+.marca{position:relative;display:flex;align-items:center;justify-content:center}
+.logo-disco{width:168px;height:168px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#2b2018,var(--couro) 70%);
+  border:1.5px solid var(--latão-esc);box-shadow:0 0 0 6px var(--couro),0 0 0 7px rgba(212,162,76,.35),0 18px 40px rgba(0,0,0,.55);
+  display:grid;place-items:center}
+.logo-disco img{width:96px;height:auto;display:block}
+
+h1{font-family:var(--f-display);font-weight:900;font-size:44px;line-height:.95;letter-spacing:.01em;text-transform:uppercase;margin:22px 0 4px;text-wrap:balance}
+h1 span{color:var(--latão)}
+.lema{margin:0;color:var(--pó);font-size:14.5px;max-width:34ch}
+.info{display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:center;margin-top:12px;font-size:12.5px;color:var(--pó)}
+.info b{color:var(--marfim);font-weight:600}
+.aberto{display:inline-flex;align-items:center;gap:6px}
+.aberto i{width:7px;height:7px;border-radius:50%;background:var(--zap);box-shadow:0 0 0 3px rgba(47,191,107,.18)}
+
+/* POSTE DE BARBEIRO (divisor ilustrado) */
+.poste{height:8px;border-radius:99px;margin:24px auto 22px;width:120px;
+  background:repeating-linear-gradient(-45deg,var(--latão) 0 7px,var(--couro-2) 7px 14px,var(--marfim) 14px 21px,var(--couro-2) 21px 28px);
+  background-size:200% 100%;animation:gira 3s linear infinite;border:1px solid var(--linha)}
+@keyframes gira{to{background-position:-40px 0}}
+
+/* BOTÕES */
+.links{display:flex;flex-direction:column;gap:10px}
+.btn{display:flex;align-items:center;gap:14px;text-decoration:none;padding:14px 16px;border-radius:14px;
+  background:var(--couro-2);border:1px solid var(--linha);transition:transform .15s,border-color .15s,background .15s}
+.btn:hover{transform:translateY(-2px);border-color:var(--latão-esc);background:#2a1f17}
+.btn:focus-visible,.chip:focus-visible,.foto:focus-visible{outline:2px solid var(--latão-claro);outline-offset:3px}
+.btn .ico{flex:none;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:#120d0a;border:1px solid var(--linha)}
+.btn .ico svg{width:21px;height:21px}
+.btn .txt{display:flex;flex-direction:column;min-width:0;flex:1}
+.btn strong{font-weight:600;font-size:15.5px}
+.btn small{color:var(--pó);font-size:12.5px}
+.btn .seta{flex:none;color:var(--latão);opacity:.8}
+.btn.destaque{background:linear-gradient(135deg,var(--latão-claro),var(--latão) 45%,#b4822f);color:#1a120b;border:none;
+  box-shadow:0 10px 26px rgba(212,162,76,.25)}
+.btn.destaque small{color:#4b3517}
+.btn.destaque .ico{background:rgba(26,18,11,.12);border-color:rgba(26,18,11,.2)}
+.btn.destaque .seta{color:#1a120b}
+.estrelas{color:var(--latão);letter-spacing:1px}
+
+/* AVALIAÇÕES */
+.aval{margin-top:34px;padding:18px 0 4px;border-radius:18px;background:linear-gradient(180deg,#241a12,var(--couro-2));border:1px solid var(--latão-esc)}
+.aval-topo{display:flex;align-items:center;gap:14px;padding-inline:18px}
+.aval-nota{font-family:var(--f-display);font-weight:900;font-size:52px;line-height:.85;color:var(--latão-claro)}
+.aval-nota:empty{display:none}
+.aval-resumo{display:flex;flex-direction:column;gap:2px;min-width:0}
+.aval-resumo .estrelas{font-size:18px}
+.aval-resumo small{color:var(--pó);font-size:12.5px}
+.aval-topo h2{margin-bottom:2px}
+.trilho{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 18px 18px;scrollbar-width:thin;scrollbar-color:var(--linha) transparent}
+.depo{flex:0 0 82%;scroll-snap-align:start;display:flex;flex-direction:column;gap:10px;margin:0;padding:16px;border-radius:14px;background:var(--couro);border:1px solid var(--linha);position:relative}
+.depo::before{content:"\201C";position:absolute;top:-6px;right:12px;font-family:var(--f-display);font-weight:900;font-size:64px;line-height:1;color:var(--latão-esc);opacity:.6}
+.depo blockquote{margin:0;font-size:14px;line-height:1.5;color:var(--marfim)}
+.depo figcaption{margin-top:auto;display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--pó)}
+.depo figcaption b{color:var(--marfim);font-weight:600}
+.avatar{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--latão);color:#1a120b;font:800 14px var(--f-display)}
+.exemplo{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--latão);border:1px dashed var(--latão-esc);border-radius:99px;padding:2px 7px;align-self:flex-start}
+
+/* SERVIÇOS */
+.secao{margin-top:34px}
+.secao-topo{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
+h2{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:26px;letter-spacing:.02em;margin:0;line-height:1}
+.secao-topo p{margin:0;font-size:12.5px;color:var(--pó);text-align:right}
+.servicos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chip{display:flex;flex-direction:column;gap:8px;text-decoration:none;padding:14px;border-radius:14px;border:1px dashed var(--linha);
+  background:transparent;transition:border-color .15s,background .15s}
+.chip:hover{border-style:solid;border-color:var(--latão);background:var(--couro-2)}
+.chip svg{width:26px;height:26px;color:var(--latão)}
+.chip strong{font-weight:600;font-size:14.5px;line-height:1.2}
+.chip small{color:var(--pó);font-size:12px;line-height:1.35}
+.chip .agendar{margin-top:auto;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--latão)}
+
+/* BOOK */
+.book{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:86px;gap:8px}
+.foto{position:relative;overflow:hidden;border-radius:12px;border:0;padding:0;cursor:zoom-in;background:var(--couro-2)}
+.foto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.foto:hover img{transform:scale(1.06)}
+.foto span{position:absolute;left:8px;bottom:7px;font:600 10.5px/1 var(--f-corpo);letter-spacing:.12em;text-transform:uppercase;color:var(--marfim);
+  text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.f1{grid-column:span 4;grid-row:span 2}.f2{grid-column:span 2;grid-row:span 2}
+.f3,.f4,.f5{grid-column:span 2;grid-row:span 1}
+.f6{grid-column:span 6;grid-row:span 2}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:20;background:rgba(10,7,5,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:calc(16px + env(safe-area-inset-top,0px)) 16px calc(16px + env(safe-area-inset-bottom,0px))}
+.lb[hidden]{display:none}
+.lb img{max-width:100%;max-height:78vh;border-radius:12px;object-fit:contain}
+.lb p{margin:12px 0 0;color:var(--pó);font-size:13px}
+.lb-bar{display:flex;gap:10px;margin-top:14px}
+.lb button{font:600 13px var(--f-corpo);color:var(--marfim);background:var(--couro-2);border:1px solid var(--linha);border-radius:99px;padding:9px 16px;cursor:pointer}
+.lb button:hover{border-color:var(--latão)}
+
+/* RODAPÉ */
+footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--linha);text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+footer .assin{font-size:12px;color:var(--pó)}
+.credito{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:8px 16px 8px 10px;border-radius:99px;border:1px solid var(--linha);background:var(--couro-2)}
+.credito img{width:20px;height:auto;display:block}
+.credito em{font-style:normal;font-size:12.5px;color:var(--pó)}
+.credito b{font-weight:600;color:var(--marfim)}
+
+@media (prefers-reduced-motion:reduce){
+  .poste{animation:none}
+  .btn,.foto img{transition:none}
+}
+</style>
+
+<main class="pagina">
+  <header class="capa">
+    <img src="img/degrade.webp" alt="Barbeiro finalizando um degradê na Barbearia Zébarb">
+    <span class="selo">Corte · Barba · Navalha</span>
+  </header>
+
+  <section class="identidade">
+    <div class="marca">
+      <div class="logo-disco"><img src="img/logo.png" alt="Logo Zébarb Barbearia: leão coroado"></div>
+    </div>
+
+    <h1>Barbearia <span>Zébarb</span></h1>
+    <p class="lema">Corte de respeito, barba alinhada na navalha e aquele café enquanto você espera.</p>
+    <div class="info">
+      <span class="aberto"><i></i><b>Ter a Sáb</b> 9h às 20h</span>
+      <span>Atendimento com hora marcada</span>
+    </div>
+  </section>
+
+  <div class="poste" aria-hidden="true"></div>
+
+  <nav class="links" aria-label="Links da barbearia">
+    <a class="btn destaque" id="lnk-agendar" href="#" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span>
+      <span class="txt"><strong>Agendar horário</strong><small>Escolha o serviço pelo WhatsApp</small></span>
+      <span class="seta">→</span>
+    </a>
+    <a class="btn" id="lnk-whats" href="#" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="#2fbf6b"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></svg></span>
+      <span class="txt"><strong>WhatsApp</strong><small>Tire dúvidas com a gente</small></span>
+      <span class="seta">→</span>
+    </a>
+    <a class="btn" id="lnk-insta" href="#" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#e7a0c0" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="#e7a0c0" stroke="none"/></svg></span>
+      <span class="txt"><strong>Instagram</strong><small id="txt-insta">@zebarb.barbearia</small></span>
+      <span class="seta">→</span>
+    </a>
+    <a class="btn" id="lnk-google" href="#" target="_blank" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.3-.2-1.9H12v3.6h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.7 3-4.3 3-7.2Z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1-2.6 0-4.8-1.8-5.6-4.1H3.1v2.6A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.4 14a6 6 0 0 1 0-3.9V7.5H3.1a10 10 0 0 0 0 9.1L6.4 14Z"/><path fill="#EA4335" d="M12 6c1.5 0 2.8.5 3.8 1.5l2.9-2.9A10 10 0 0 0 3.1 7.5L6.4 10C7.2 7.8 9.4 6 12 6Z"/></svg></span>
+      <span class="txt"><strong>Avaliações no Google</strong><small><span class="estrelas">★★★★★</span> Conte como foi seu corte</small></span>
+      <span class="seta">→</span>
+    </a>
+  </nav>
+
+  <section class="aval" aria-labelledby="t-aval">
+    <div class="aval-topo">
+      <span class="aval-nota" id="aval-nota"></span>
+      <div class="aval-resumo">
+        <h2 id="t-aval">Clientes satisfeitos</h2>
+        <span class="estrelas" aria-label="5 estrelas">★★★★★</span>
+        <small id="aval-total">Avaliações dos clientes no Google</small>
+      </div>
+    </div>
+    <div class="trilho" id="trilho" tabindex="0" aria-label="Avaliações de clientes"></div>
+  </section>
+
+  <section class="secao" aria-labelledby="t-servicos">
+    <div class="secao-topo"><h2 id="t-servicos">Serviços</h2><p>Toque para agendar</p></div>
+    <div class="servicos">
+      <a class="chip" data-servico="Corte de cabelo" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="9" r="4"/><circle cx="8" cy="23" r="4"/><path d="M11 11l17 12M11 21l17-12"/></svg>
+        <strong>Corte</strong><small>Social, degradê ou na tesoura</small><span class="agendar">Agendar →</span>
+      </a>
+      <a class="chip" data-servico="Barba" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h20l-2 6H8z"/><path d="M8 12v13a2 2 0 0 0 2 2h1V12M24 12v13a2 2 0 0 1-2 2h-1V12M15 12v15M17 12v15"/></svg>
+        <strong>Barba</strong><small>Desenho, toalha quente e navalha</small><span class="agendar">Agendar →</span>
+      </a>
+      <a class="chip" data-servico="Corte + Barba" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4 19 9 25 6 23 12H9L7 6l6 3z"/><path d="M8 15c0 8 3.5 13 8 13s8-5 8-13"/><path d="M12 21c1.5 1.5 6.5 1.5 8 0"/></svg>
+        <strong>Corte + Barba</strong><small>O combo completo do rei</small><span class="agendar">Agendar →</span>
+      </a>
+      <a class="chip" data-servico="Pezinho / acabamento" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22 22 6l3 3L9 26H4z"/><path d="M22 6l6-2-2 6M14 14l4 4"/></svg>
+        <strong>Pezinho</strong><small>Acabamento e contorno rápido</small><span class="agendar">Agendar →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="secao" aria-labelledby="t-book">
+    <div class="secao-topo"><h2 id="t-book">Book</h2><p>Toque para ampliar</p></div>
+    <div class="book" id="book">
+      <button class="foto f1" data-legenda="Barba na máquina com pente de altura"><img src="img/barba-maquina.webp" alt="Barba sendo aparada na máquina" loading="lazy"><span>Barba</span></button>
+      <button class="foto f2" data-legenda="Navalha com espuma para o contorno"><img src="img/navalha.webp" alt="Contorno de barba na navalha" loading="lazy" style="object-position:40% center"><span>Navalha</span></button>
+      <button class="foto f3" data-legenda="Corte na tesoura, mecha por mecha"><img src="img/tesoura.webp" alt="Corte de cabelo na tesoura" loading="lazy" style="object-position:55% center"><span>Tesoura</span></button>
+      <button class="foto f4" data-legenda="Barba alinhada no detalhe"><img src="img/barba-pente.webp" alt="Barba sendo alinhada com máquina" loading="lazy"><span>Detalhe</span></button>
+      <button class="foto f5" data-legenda="Acabamento final na cadeira"><img src="img/acabamento.webp" alt="Barbeiro fazendo acabamento na barba" loading="lazy" style="object-position:70% center"><span>Acabamento</span></button>
+      <button class="foto f6" data-legenda="Sua cadeira está esperando"><img src="img/cadeira.webp" alt="Cadeira clássica de barbeiro em couro" loading="lazy" style="object-position:center 45%"><span>A casa</span></button>
+    </div>
+  </section>
+
+  <footer>
+    <span class="assin">© <span id="ano">2026</span> Barbearia Zébarb</span>
+    <a class="credito" href="https://www.instagram.com/" target="_blank" rel="noopener" id="lnk-5up">
+      <img src="img/5up.png" alt="Logo 5UP"><em>Criado por <b>5UP Marketing Interativo</b></em>
+    </a>
+  </footer>
+</main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <img id="lb-img" alt="">
+  <p id="lb-leg"></p>
+  <div class="lb-bar">
+    <button id="lb-ant" type="button">← Anterior</button>
+    <button id="lb-fechar" type="button">Fechar</button>
+    <button id="lb-prox" type="button">Próxima →</button>
+  </div>
+</div>
+
+<script>
+/* ===== EDITE AQUI: dados da barbearia ===== */
+const ZEBARB = {
+  whatsapp: "5511999999999",                         // DDI + DDD + número, só dígitos
+  instagram: "zebarb.barbearia",                      // usuário sem @
+  google: "https://www.google.com/search?q=Barbearia+Z%C3%A9barb", // link "Avaliar no Google" do Perfil da Empresa
+  agencia: "https://www.instagram.com/",              // link da 5UP Marketing Interativo
+  notaGoogle: "",          // ex.: "4,9"  (deixe "" para esconder)
+  totalAvaliacoes: "",     // ex.: "128"  (deixe "" para esconder)
+  // Cole aqui avaliações REAIS do Google. Remova "exemplo: true" ao trocar o texto.
+  avaliacoes: [
+    { nome: "Nome do cliente", texto: "Espaço para uma avaliação real do Google. Copie o texto do cliente e cole aqui.", exemplo: true },
+    { nome: "Nome do cliente", texto: "Segunda avaliação real. Prefira as que citam o serviço, o atendimento ou o ambiente.", exemplo: true },
+    { nome: "Nome do cliente", texto: "Terceira avaliação real. De três a cinco depoimentos curtos funcionam melhor aqui.", exemplo: true }
+  ]
+};
+/* ========================================== */
+
+const zap = (msg) => `https://wa.me/${ZEBARB.whatsapp}?text=${encodeURIComponent(msg)}`;
+document.getElementById("lnk-agendar").href = zap("Olá, Zébarb! Quero agendar um horário. Qual o próximo disponível?");
+document.getElementById("lnk-whats").href   = zap("Olá, Zébarb! Vim pelo link da bio e tenho uma dúvida.");
+document.getElementById("lnk-insta").href   = `https://www.instagram.com/${ZEBARB.instagram}/`;
+document.getElementById("txt-insta").textContent = "@" + ZEBARB.instagram;
+document.getElementById("lnk-google").href  = ZEBARB.google;
+document.getElementById("lnk-5up").href     = ZEBARB.agencia;
+document.getElementById("aval-nota").textContent = ZEBARB.notaGoogle;
+if (ZEBARB.totalAvaliacoes) document.getElementById("aval-total").textContent = `${ZEBARB.totalAvaliacoes} avaliações no Google`;
+const trilho = document.getElementById("trilho");
+ZEBARB.avaliacoes.forEach(a => {
+  const fig = document.createElement("figure"); fig.className = "depo";
+  if (a.exemplo) { const t = document.createElement("span"); t.className = "exemplo"; t.textContent = "Exemplo"; fig.append(t); }
+  const q = document.createElement("blockquote"); q.textContent = a.texto;
+  const cap = document.createElement("figcaption");
+  const av = document.createElement("span"); av.className = "avatar"; av.textContent = (a.nome || "?").trim()[0].toUpperCase();
+  const nm = document.createElement("span"); nm.innerHTML = "<b></b><br>★★★★★ no Google"; nm.querySelector("b").textContent = a.nome;
+  cap.append(av, nm); fig.append(q, cap); trilho.append(fig);
+});
+document.querySelectorAll(".chip[data-servico]").forEach(c => {
+  c.href = zap(`Olá, Zébarb! Quero agendar: ${c.dataset.servico}. Quais horários vocês têm?`);
+});
+document.getElementById("ano").textContent = new Date().getFullYear();
+
+/* Book: lightbox */
+const fotos = [...document.querySelectorAll("#book .foto")];
+const lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img"), lbLeg = document.getElementById("lb-leg");
+let atual = 0, origem = null;
+function abrir(i){
+  atual = (i + fotos.length) % fotos.length;
+  const f = fotos[atual], img = f.querySelector("img");
+  lbImg.src = img.src; lbImg.alt = img.alt; lbLeg.textContent = f.dataset.legenda;
+  lb.hidden = false; document.getElementById("lb-fechar").focus();
+}
+function fechar(){ lb.hidden = true; origem && origem.focus(); }
+fotos.forEach((f, i) => f.addEventListener("click", () => { origem = f; abrir(i); }));
+document.getElementById("lb-fechar").onclick = fechar;
+document.getElementById("lb-ant").onclick = () => abrir(atual - 1);
+document.getElementById("lb-prox").onclick = () => abrir(atual + 1);
+lb.addEventListener("click", e => { if (e.target === lb) fechar(); });
+document.addEventListener("keydown", e => {
+  if (lb.hidden) return;
+  if (e.key === "Escape") fechar();
+  if (e.key === "ArrowLeft") abrir(atual - 1);
+  if (e.key === "ArrowRight") abrir(atual + 1);
+});
+</script>
+
+</body></html>
